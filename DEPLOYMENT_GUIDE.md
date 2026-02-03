@@ -6,7 +6,7 @@
 
 1. **Create a GitHub Repository**
    - Go to github.com and create a new repository
-   - Name it something like "bini-valentine-2025"
+   - Name it something like "bini-valentine-2026"
 
 2. **Push Your Code**
    ```bash

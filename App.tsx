@@ -204,7 +204,7 @@ const App: React.FC = () => {
             </div>
 
             <div className="mt-12 flex items-center justify-center gap-3 text-rose-900/40 text-xs font-bold tracking-[0.2em] uppercase">
-               <span>14.02.2025</span>
+               <span>14.02.2026</span>
                <div className="w-1 h-1 bg-rose-300 rounded-full"></div>
                <span>Valentine's Day</span>
             </div>

@@ -83,5 +83,5 @@ This project was crafted with love and attention to detail for Bini. Every anima
 
 ---
 
-**Created by Vishesh Sanghvi 💕 | Valentine's Day 2025**
+**Created by Vishesh Sanghvi 💕 | Valentine's Day 2026**
 
