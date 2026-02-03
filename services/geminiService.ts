@@ -1,24 +1,20 @@
-// Predefined romantic poem for Bini
-const LOVE_POEM = `Oh Bini, the "No" button tried to flee,
-But destiny knows you belong with me.
-It danced across the screen in playful flight,
-Because our love was always meant to be right.
+// Predefined romantic message for Bini
+const LOVE_POEM = `Hey sunshine,
 
-You clicked "Yes" (though you had no choice, it's true),
-But deep down, we both know what we always knew.
-Through every laugh, every moment we share,
-You're my favorite person, beyond compare.
+I know the "No" button kept running away from you... but honestly? There was never really a choice. My heart has been yours all along.
 
-This Valentine's, and every day that follows,
-I promise you joy, and love that never hollows.
-So here's to us, to our beautiful start,
-Forever and always, you have my heart. ❤️`;
+I love you, Bini. Through thick and thin, through every high and low, I'm here. You're not just my favorite person - you're my everything. The one who makes every day brighter just by existing.
+
+This Valentine's Day and every single day after, I want you to know how much you mean to me. You're my best decision, my greatest adventure, my home.
+
+Forever yours,
+Always and forever. ❤️`;
 
 // Simulate a realistic typing effect with delays
 const typeWriter = async (
   text: string,
   callback: (chunk: string) => void,
-  speed = 30
+  speed = 20
 ): Promise<void> => {
   const lines = text.split('\n');
   let currentText = '';
@@ -51,7 +47,7 @@ export const generateLovePoem = async (
   
   if (onProgress) {
     // Stream the poem with typing effect
-    await typeWriter(LOVE_POEM, onProgress, 30);
+    await typeWriter(LOVE_POEM, onProgress, 20);
     return LOVE_POEM;
   }
   

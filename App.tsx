@@ -52,11 +52,18 @@ const App: React.FC = () => {
     frame();
   };
 
-  const handleNoHover = () => {
+  const handleNoHover = (e?: React.MouseEvent | React.TouchEvent) => {
+    // Prevent default behavior for touch events
+    if (e && 'touches' in e) {
+      e.preventDefault();
+    }
+    
     setYesScale((prev) => Math.min(prev + 0.2, 6)); 
     
     if (noBtnRef.current) {
-      const padding = 60;
+      // Smaller padding on mobile for better use of screen space
+      const isMobile = window.innerWidth < 768;
+      const padding = isMobile ? 20 : 60;
       const btnWidth = noBtnRef.current.offsetWidth;
       const btnHeight = noBtnRef.current.offsetHeight;
       
@@ -139,7 +146,7 @@ const App: React.FC = () => {
                   transform: `scale(${yesScale})`, 
                   transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
                 }}
-                className="group relative bg-rose-600 hover:bg-rose-700 text-white font-medium py-4 px-12 rounded-full shadow-xl shadow-rose-300/50 text-lg tracking-wide transition-all duration-300 min-w-[160px] overflow-hidden"
+                className="group relative bg-rose-600 hover:bg-rose-700 text-white font-medium py-3 px-8 md:py-4 md:px-12 rounded-full shadow-xl shadow-rose-300/50 text-base md:text-lg tracking-wide transition-all duration-300 min-w-[140px] md:min-w-[160px] overflow-hidden"
               >
                 <div className="absolute inset-0 bg-white/20 group-hover:translate-x-full duration-500 transition-transform -skew-x-12 -translate-x-full"></div>
                 <span className="relative z-10">{getYesButtonText()}</span>
@@ -148,7 +155,8 @@ const App: React.FC = () => {
               <button
                 ref={noBtnRef}
                 onMouseEnter={handleNoHover}
-                onClick={handleNoHover}
+                onTouchStart={(e) => handleNoHover(e)}
+                onClick={(e) => handleNoHover(e)}
                 style={isNoButtonAbsolute ? {
                   position: 'fixed',
                   top: `${noButtonPos.top}px`,
@@ -156,7 +164,7 @@ const App: React.FC = () => {
                   transition: 'top 0.4s ease, left 0.4s ease',
                   zIndex: 50
                 } : {}}
-                className="group bg-white text-gray-500 hover:text-rose-500 font-medium py-4 px-12 rounded-full border border-gray-200 hover:border-rose-200 shadow-sm hover:shadow-md text-lg tracking-wide transition-all duration-300 min-w-[160px]"
+                className="group bg-white text-gray-500 active:text-rose-500 hover:text-rose-500 font-medium py-3 px-8 md:py-4 md:px-12 rounded-full border border-gray-200 active:border-rose-200 hover:border-rose-200 shadow-sm active:shadow-md hover:shadow-md text-base md:text-lg tracking-wide transition-all duration-300 min-w-[140px] md:min-w-[160px] touch-none select-none"
               >
                 No
               </button>
